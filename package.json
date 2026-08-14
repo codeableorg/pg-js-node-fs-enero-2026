@@ -1,0 +1,15 @@
+{
+  "name": "pg-js-node-fs-enero-2026",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Carlos Rodriguez <carlos15erh@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.23.0"
+  }
+}
