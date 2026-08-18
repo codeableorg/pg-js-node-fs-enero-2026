@@ -13,8 +13,14 @@ export const createClient = () => new Client(config);
 
 export const query = async (sql, ...values) => {
   const client = createClient();
-  await client.connect();
-  const result = await client.query(sql, values);
-  await client.end();
-  return result;
+  try {
+    await client.connect();
+    const result = await client.query(sql, values);
+    return result;
+  } catch (e) {
+    console.log('Algo malo paso con la consulta');
+    console.error(e);
+  } finally {
+    await client.end();
+  }
 };
