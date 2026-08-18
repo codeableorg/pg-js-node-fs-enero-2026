@@ -9,13 +9,17 @@ import { query } from './db.js';
 // const ciudad = 'Lima';
 
 // const { rows: clientesPorCiudad } = await query(
-//   'SELECT nombre, correo, fecha_registro FROM clientes WHERE ciudad = $1',
+//   `
+//    SELECT nombre, correo, fecha_registro
+//    FROM clientes
+//    WHERE ciudad = $1
+//    `,
 //   ciudad
 // );
 
 // console.log(clientesPorCiudad);
 
-const { rows } = await query(
+const { rows: clientes } = await query(
   `SELECT c.nombre, c.ciudad, c.correo, count(c.id) AS pedidos
    FROM clientes c
    INNER JOIN pedidos p on p.cliente_id = c.id
@@ -27,6 +31,6 @@ const { rows } = await query(
   'Lima'
 );
 
-console.log(rows);
+console.log(clientes);
 
 // await client.end();
