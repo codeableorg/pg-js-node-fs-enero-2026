@@ -10,3 +10,11 @@ const config = {
 
 export const pool = new Pool(config);
 export const createClient = () => new Client(config);
+
+export const query = async (sql, ...values) => {
+  const client = createClient();
+  await client.connect();
+  const result = await client.query(sql, values);
+  await client.end();
+  return result;
+};
